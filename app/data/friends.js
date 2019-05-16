@@ -14,4 +14,10 @@ const friends = {
         1
       ]
   };
+
+  module.exports = {
+    friends: friends
+    
+  };
+  
   
