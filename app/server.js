@@ -1,6 +1,8 @@
 var express = require("express");
 var path = require("path");
 
+var friends = require("./app/data/friends.js");
+
 
 // var friendsData = require("./app/data/friends.js");
 
@@ -20,9 +22,28 @@ app.get("/", function(req, res) {
   app.get("/survey", function(req, res){
     res.sendFile(path.join(__dirname, "./public/survey.html"))
   });
+
+  // displaying all the users
+  app.get("/api/friends", function(req, res) {
+    return res.json(friends);
+  });
   
-
-
+  // Post requests
+  app.post("/api/friends", function(req, res) {
+    
+    var newFriend = req.body;
+  
+    
+    newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
+  
+    console.log(newFriend);
+  
+    characters.push(newFriend);
+  
+    res.json(newFriend);
+  });
+  
+  
   
 
 
