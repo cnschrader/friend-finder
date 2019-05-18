@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
 
-var friends = require("./app/data/friends.js");
+var friends = require("./data/friends.js");
 
 
 // var friendsData = require("./app/data/friends.js");
@@ -38,7 +38,7 @@ app.get("/", function(req, res) {
   
     console.log(newFriend);
   
-    characters.push(newFriend);
+    friends.push(newFriend);
   
     res.json(newFriend);
   });
