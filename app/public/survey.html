@@ -43,51 +43,51 @@
 
     <h4>You enjoy being the center of attention at a party.</h4>
     <select class="form-control choice">
-      <option>1 Strongly Disagree</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 Strongly Agree</option>
+      <option>5</option>
     </select>
     <br><br>
 
     <h4>You need a plan for everything.</h4>
     <select class="form-control choice">
-      <option>1 Strongly Disagree</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 Strongly Agree</option>
+      <option>5</option>
     </select>
     <br><br>
 
     <h4>Your perfect vacation is reading a book in the mountains.</h4>
     <select class="form-control choice">
-      <option>1 Strongly Disagree</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 Strongly Agree</option>
+      <option>5</option>
     </select>
     <br><br>
 
     <h4>You re-energize by hanging out with a group of close friends.</h4>
     <select class="form-control choice">
-      <option>1 Strongly Disagree</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 Strongly Agree</option>
+      <option>5</option>
     </select>
     <br><br>
     
     <h4>You are stressed if you do not get all of your todo's done for the day.</h4>
     <select class="form-control choice">
-      <option>1 Strongly Disagree</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 Strongly Agree</option>
+      <option>5</option>
     </select>
   
   </div>
@@ -119,14 +119,19 @@ $("#submit-btn").on("click", function(event) {
 
 const choiceArray = [];
 
-      var newEntry = {
+const choiceInt = $(".choice").val();
+parseInt(choiceInt);
+choiceArray.push(choiceInt);
+
+
+      
+  var newEntry = {
         name: $("#name").val(),
         photo: $("#photo").val(),
-        choice: $(".choice").val(),
+        choice: choiceArray,
 
       };
 
-      choiceArray.push(newEntry.choice);  
 
       // Question: What does this code do??
       $.post("/api/friends", newEntry)
