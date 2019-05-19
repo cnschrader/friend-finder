@@ -25,23 +25,24 @@
 
     <form>
       <div class="form-group">
-        <label for="formGroupExampleInput">Name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your Name Here">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Your Name Here">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Link to a photo</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Paste URL Here">
+        <label for="photo">Link to a photo</label>
+        <input type="text" class="form-control" id="photo" placeholder="Paste URL Here">
       </div>
     </form>
     
   </div>
 
+  <!-- survey section -->
   <div class="container">
     <hr>
     <h2>Questions</h2>
 
     <h4>You enjoy being the center of attention at a party.</h4>
-    <select class="form-control">
+    <select class="form-control choice">
       <option>1 Strongly Disagree</option>
       <option>2</option>
       <option>3</option>
@@ -51,7 +52,7 @@
     <br><br>
 
     <h4>You need a plan for everything.</h4>
-    <select class="form-control">
+    <select class="form-control choice">
       <option>1 Strongly Disagree</option>
       <option>2</option>
       <option>3</option>
@@ -61,7 +62,7 @@
     <br><br>
 
     <h4>Your perfect vacation is reading a book in the mountains.</h4>
-    <select class="form-control">
+    <select class="form-control choice">
       <option>1 Strongly Disagree</option>
       <option>2</option>
       <option>3</option>
@@ -71,7 +72,7 @@
     <br><br>
 
     <h4>You re-energize by hanging out with a group of close friends.</h4>
-    <select class="form-control">
+    <select class="form-control choice">
       <option>1 Strongly Disagree</option>
       <option>2</option>
       <option>3</option>
@@ -81,7 +82,7 @@
     <br><br>
     
     <h4>You are stressed if you do not get all of your todo's done for the day.</h4>
-    <select class="form-control">
+    <select class="form-control choice">
       <option>1 Strongly Disagree</option>
       <option>2</option>
       <option>3</option>
@@ -90,6 +91,15 @@
     </select>
   
   </div>
+
+  <br><br>
+
+  <!-- submit button -->
+  <div class="container">
+  <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Large button</button>
+</div>
+
+<br><br>
 
 
 
@@ -101,5 +111,28 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 </body>
+
+<script type="text/javascript">
+
+$("#submit-btn").on("click", function(event) {
+      event.preventDefault();
+
+      var newFriend = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        choice: $("choice").val(),
+
+      };
+
+      // Question: What does this code do??
+      $.post("/api/friends", newFriend)
+        .then(function(data) {
+          console.log(data);
+          alert("Adding friend...");
+        });
+
+    });
+
+</script>
 
 </html>
