@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
 
-// var friends = require("./data/friends.js");
+var friends = require("./data/friends.js");
 
 
 
@@ -15,47 +15,6 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// data
-const friends = [
-  {
-    name:"Ahmed",
-    photo:"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    choice:[
-        5,
-        1,
-        4,
-        4,
-        5,
-
-      ]
-  },
-  {
-    name:"Jane",
-    photo:"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    choice:[
-        2,
-        5,
-        5,
-        2,
-        2,
-       
-      ]
-  },
-  {
-    name:"Jack",
-    photo:"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    choice:[
-        3,
-        3,
-        4,
-        1,
-        1,
-       
-      ]
-  },
-
-
-]
 
 // GET requests
 app.get("/", function(req, res) {
