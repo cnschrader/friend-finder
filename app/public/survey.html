@@ -117,12 +117,12 @@
 $("#submit-btn").on("click", function(event) {
       event.preventDefault();
 
-const choiceArray = [];
+let choiceArray = [];
 
-const choiceInt = $(".choice").val();
+let sel = document.querySelector("select");
 
-for (var i = 0; i < choiceInt.options.length; i++) { // looping over the options
-  if (choiceInt.options[i].value) choiceArray.push(choiceInt.options[i].value);
+for (let i = 0; i < sel.options.length; i++) { // looping over the options
+  if (sel.options[i].value) choiceArray.push(sel.options[i].value);
 }
 
 
