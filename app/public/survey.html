@@ -120,8 +120,10 @@ $("#submit-btn").on("click", function(event) {
 const choiceArray = [];
 
 const choiceInt = $(".choice").val();
-parseInt(choiceInt);
-choiceArray.push(choiceInt);
+
+for (var i = 0; i < choiceInt.options.length; i++) { // looping over the options
+  if (choiceInt.options[i].value) choiceArray.push(choiceInt.options[i].value);
+}
 
 
       
