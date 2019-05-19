@@ -117,15 +117,19 @@
 $("#submit-btn").on("click", function(event) {
       event.preventDefault();
 
-      var newFriend = {
+const choiceArray = [];
+
+      var newEntry = {
         name: $("#name").val(),
         photo: $("#photo").val(),
-        choice: $("choice").val(),
+        choice: $(".choice").val(),
 
       };
 
+      choiceArray.push(newEntry.choice);  
+
       // Question: What does this code do??
-      $.post("/api/friends", newFriend)
+      $.post("/api/friends", newEntry)
         .then(function(data) {
           console.log(data);
           alert("Adding friend...");
