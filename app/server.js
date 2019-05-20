@@ -47,7 +47,7 @@ app.get("/", function(req, res) {
       let currentFriend = (friends[i]);
       totalDifference = 0;
 
-      let friendInt = parseInt(currentFriend.choice);
+       parseInt(currentFriend.choice);
 
       console.log(currentFriend.name);
       console.log(currentFriend.choice);
@@ -60,7 +60,7 @@ app.get("/", function(req, res) {
         // We calculate the difference between the scores and sum them into the totalDifference
         
         
-        const sum = friendInt.reduce((partial_sum, a) => partial_sum + a,0); 
+        const sum = currentFriend.choice.reduce((partial_sum, a) => partial_sum + a,0); 
 console.log(sum);
 
 
