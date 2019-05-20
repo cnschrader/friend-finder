@@ -33,17 +33,33 @@ app.get("/", function(req, res) {
   // Post requests
   app.post("/api/friends", function(req, res) {
     
+    // pushing to the friends array of objects.
     var newFriend = req.body;
-  
-    
-
   
     console.log(newFriend);
   
     friends.push(newFriend);
   
     res.json(newFriend);
-  });
+
+    // logic for the comparison and matching
+    for (var i = 0; i < friends.length; i++) {
+      var currentFriend = friends[i];
+      totalDifference = 0;
+
+      console.log(currentFriend.name);
+
+      // We then loop through all the scores of each friend
+      for (var j = 0; j < currentFriend.scores.length; j++) {
+
+        // We calculate the difference between the scores and sum them into the totalDifference
+        
+      }
+
+      // If the sum of differences is less then the differences of the current "best match"
+      // Reset the bestMatch to be the new friend.
+
+  }});
   
   
   
