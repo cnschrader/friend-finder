@@ -128,7 +128,8 @@ let choiceArray = []
 
 $("select").each(function() {
     console.log(this.value);
-    choiceArray.push(this.value);
+   
+    choiceArray.push(parseInt(this.value));
 });
 
 

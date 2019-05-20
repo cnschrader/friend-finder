@@ -43,16 +43,27 @@ app.get("/", function(req, res) {
     res.json(newFriend);
 
     // logic for the comparison and matching
-    for (var i = 0; i < friends.length; i++) {
-      var currentFriend = friends[i];
+    for (let i = 0; i < friends.length; i++) {
+      let currentFriend = (friends[i]);
       totalDifference = 0;
 
+      let friendInt = parseInt(currentFriend.choice);
+
       console.log(currentFriend.name);
+      console.log(currentFriend.choice);
+
+      
 
       // We then loop through all the scores of each friend
-      for (var j = 0; j < currentFriend.scores.length; j++) {
+      for (var j = 0; j < currentFriend.choice.length; j++) {
 
         // We calculate the difference between the scores and sum them into the totalDifference
+        
+        
+        const sum = friendInt.reduce((partial_sum, a) => partial_sum + a,0); 
+console.log(sum);
+
+
         
       }
 
@@ -61,6 +72,7 @@ app.get("/", function(req, res) {
 
   }});
   
+ 
   
   
 
